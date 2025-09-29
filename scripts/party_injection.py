@@ -1,8 +1,14 @@
+import os
 import requests
 from neo4j import GraphDatabase
+from dotenv import load_dotenv
 
-NEO4J_URI = "bolt://localhost:7687"
-NEO4J_AUTH = ("neo4j", "super-secure-password")
+load_dotenv()
+database_url = os.getenv("DATABASE")
+password = os.getenv("PASSWORD")
+
+NEO4J_URI = os.getenv("URI")
+NEO4J_AUTH = (database_url, password)
 
 API_URL_PARTIES = "https://dadosabertos.camara.leg.br/api/v2/partidos"
 

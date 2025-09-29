@@ -1,8 +1,15 @@
+import os
 import requests
 from neo4j import GraphDatabase
+from dotenv import load_dotenv
 
-NEO4J_URI = "bolt://localhost:7687"
-NEO4J_AUTH = ("neo4j", "super-secure-password")
+load_dotenv()
+
+database_url = os.getenv("DATABASE")
+password = os.getenv("PASSWORD")
+
+NEO4J_URI = os.getenv("URI")
+NEO4J_AUTH = (database_url, password)
 
 API_URL_DEPUTIES = "https://dadosabertos.camara.leg.br/api/v2/deputados"
 
@@ -17,7 +24,7 @@ def create_deputy_constraint(driver):
 def fetch_deputy_data_from_api():
     print(f"Fetching data from {API_URL_DEPUTIES}...")
     try:
-        params = {'formato': 'json', 'itens': 500}
+        params = {'formato': 'json', 'itens': 600}
         response = requests.get(API_URL_DEPUTIES, params=params, timeout=30)
         response.raise_for_status()
         print("Data successfully received from API.")
