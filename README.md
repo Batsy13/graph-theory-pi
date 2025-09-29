@@ -8,8 +8,8 @@ O objetivo principal é transformar os dados tabulares e distribuídos da API "D
 
 ## Tecnologias Utilizadas
 
-[![Python][Python][Python-url]]
-[![Neo4j][Neo4j][Neo4j-url]]
+[![Python][Python]][Python-url]
+[![Neo4j][Neo4j]][Neo4j-url]
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54 
 [Python-url]: https://www.python.org/
