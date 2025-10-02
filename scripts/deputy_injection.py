@@ -14,10 +14,10 @@ NEO4J_AUTH = (database_url, password)
 API_URL_DEPUTIES = "https://dadosabertos.camara.leg.br/api/v2/deputados"
 
 def create_deputy_constraint(driver):
-    print("Ensuring uniqueness constraint for :Deputado(id)...")
+    print("Ensuring uniqueness constraint for :Deputy(id)...")
     with driver.session() as session:
         session.run("""
-            CREATE CONSTRAINT IF NOT EXISTS FOR (d:Deputado) REQUIRE d.id IS UNIQUE
+            CREATE CONSTRAINT IF NOT EXISTS FOR (d:Deputy) REQUIRE d.id IS UNIQUE
         """)
     print("Constraint ensured.")
 
@@ -40,7 +40,7 @@ def inject_deputies_into_neo4j(driver, deputy_list):
     # 1. MERGE encontra um nó :Deputado com o 'id' correspondente ou cria um novo se não existir.
     # 2. SET d += $props atualiza/adiciona todas as propriedades do deputado.
     query = """
-    MERGE (d:Deputado {id: $deputy_props.id})
+    MERGE (d:Deputy {id: $deputy_props.id})
     SET d += $deputy_props
     """
 

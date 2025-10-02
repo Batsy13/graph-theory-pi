@@ -13,10 +13,10 @@ NEO4J_AUTH = (database_url, password)
 API_URL_PARTIES = "https://dadosabertos.camara.leg.br/api/v2/partidos"
 
 def create_party_constraint(driver):
-    print("Ensuring uniqueness constraint for :Partido(sigla)...")
+    print("Ensuring uniqueness constraint for :Party(sigla)...")
     with driver.session() as session:
         session.run("""
-            CREATE CONSTRAINT IF NOT EXISTS FOR (p:Partido) REQUIRE p.sigla IS UNIQUE
+            CREATE CONSTRAINT IF NOT EXISTS FOR (p:Party) REQUIRE p.sigla IS UNIQUE
         """)
     print("Constraint ensured.")
 
@@ -37,7 +37,7 @@ def inject_parties_into_neo4j(driver, party_list):
     print(f"Injecting/Updating {total} parties into Neo4j...")
     
     query = """
-    MERGE (p:Partido {sigla: $party_props.sigla})
+    MERGE (p:Party {sigla: $party_props.sigla})
     SET p += $party_props
     """
 
@@ -52,9 +52,9 @@ def connect_deputies_to_parties(driver):
     print("Starting connection between Deputies and Parties...")
     
     query = """
-    MATCH (d:Deputado)
-    MATCH (p:Partido {sigla: d.siglaPartido})
-    MERGE (d)-[:FILIADO_EM]->(p)
+    MATCH (d:Deputy)
+    MATCH (p:Party {sigla: d.siglaPartido})
+    MERGE (d)-[:AFFILIATED_WITH]->(p)
     """
     
     with driver.session() as session:
