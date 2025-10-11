@@ -67,6 +67,12 @@ Recomendo utilizar um editor de código como [VSCode](https://code.visualstudio.
    ```bash
    python3 scripts/party_injection.py
    ```
+   ```bash
+   python3 scripts/votations_injection.py
+   ```
+   ```bash
+   python3 scripts/propositions_injection.py
+   ```
 
 7. **Faça uma consulta no neo4j Desktop para visualização dos dados:**
    ```bash
