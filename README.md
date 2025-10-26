@@ -73,6 +73,9 @@ Recomendo utilizar um editor de código como [VSCode](https://code.visualstudio.
    ```bash
    python3 scripts/propositions_injection.py
    ```
+   ```bash
+   python3 scripts/organ_injection.py
+   ```
 
 7. **Faça uma consulta no neo4j Desktop para visualização dos dados:**
    ```bash
