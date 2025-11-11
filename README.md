@@ -51,7 +51,7 @@ Recomendo utilizar um editor de código como [VSCode](https://code.visualstudio.
    pip install dotenv
    ```
 
-4.  **Crie um banco de dados dentro do seu neo4j Desktop**
+4.  **Crie um banco de dados dentro do seu neo4j Desktop ou neo4j Aura**
 
 5.  **Adicione os dados no .env:**
     ```bash
