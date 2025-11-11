@@ -51,7 +51,7 @@ Recomendo utilizar um editor de código como [VSCode](https://code.visualstudio.
    pip install dotenv
    ```
 
-4.  **Crie um banco de dados dentro do seu neo4j Desktop**
+4.  **Crie um banco de dados dentro do seu neo4j Desktop ou neo4j Aura**
 
 5.  **Adicione os dados no .env:**
     ```bash
@@ -66,6 +66,15 @@ Recomendo utilizar um editor de código como [VSCode](https://code.visualstudio.
    ```
    ```bash
    python3 scripts/party_injection.py
+   ```
+   ```bash
+   python3 scripts/votations_injection.py
+   ```
+   ```bash
+   python3 scripts/propositions_injection.py
+   ```
+   ```bash
+   python3 scripts/organ_injection.py
    ```
 
 7. **Faça uma consulta no neo4j Desktop para visualização dos dados:**
